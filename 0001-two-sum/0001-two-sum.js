@@ -5,11 +5,10 @@
  */
 var twoSum = function(nums, target) {
     for (let i = 0; i < nums.length; i++) {
-        const firstNum = nums[i];
-        nums[i] = null;
-        let secondNumberIndex = nums.indexOf(target - firstNum);
-        if (firstNum + nums[secondNumberIndex] === target) {
-            return [i, secondNumberIndex];
+        for (let j = i + 1; j < nums.length; j++) {
+          if (nums[i] + nums[j] === target) {
+            return [i, j];
+          }
         }
     }
     return [];
