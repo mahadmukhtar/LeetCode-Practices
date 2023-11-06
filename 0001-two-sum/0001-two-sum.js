@@ -4,12 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
+    const givenArray = JSON.parse(JSON.stringify(nums));
+    for (let i = 0; i < nums.length; i++) {
+        const firstNum = nums[i];
+        nums[i] = null;
+        let secondNumberIndex = nums.indexOf(target - firstNum);
+        if (firstNum + givenArray[secondNumberIndex] === target) {
+            return [i, secondNumberIndex];
+        }
     }
-  }
-  return [];
+    return [];
 };
